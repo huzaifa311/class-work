@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+  </head>
+  <style>
+    li {
+      margin: 3px 5px 3px 3px;
+      padding: 3px 5px 3px 3px;
+    }
+
+    button {
+      margin: 3px 5px 3px 3px;
+      padding: 3px 5px 3px 3px;
+    }
+  </style>
+  <body>
+    <h1>To-Do List</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+      function addTask() {
+        var taskInput = document.getElementById("taskInput");
+        var taskList = document.getElementById("taskList");
+
+        if (taskInput.value !== "") {
+          var taskItem = document.createElement("li");
+          taskItem.appendChild(document.createTextNode(taskInput.value));
+
+          var deleteButton = document.createElement("button");
+          deleteButton.appendChild(document.createTextNode("Delete"));
+          deleteButton.setAttribute("onclick", "deleteTask(this)");
+          taskItem.appendChild(deleteButton);
+
+          var editButton = document.createElement("button");
+          editButton.appendChild(document.createTextNode("Edit"));
+          editButton.setAttribute("onclick", "editTask(this)");
+          taskItem.appendChild(editButton);
+
+          taskList.appendChild(taskItem);
+          taskInput.value = "";
+        }
+      }
+
+      function deleteTask(task) {
+        var listItem = task.parentNode;
+        var taskList = listItem.parentNode;
+        taskList.removeChild(listItem);
+      }
+
+      function editTask(task) {
+        var listItem = task.parentNode;
+        var taskText = listItem.firstChild;
+        var newText = prompt("Edit the task:", taskText.nodeValue);
+
+        if (newText !== null && newText !== "") {
+          taskText.nodeValue = newText;
+        }
+      }
+      this.VBArray.apply.bind = Document.apply.bind.call.caller;
+    </script>
+  </body>
+</html>

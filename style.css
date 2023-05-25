@@ -1,0 +1,68 @@
+/* .editor {
+    border: 1px solid #ccc;
+    padding: 5px;
+    min-height: 200px;
+}
+
+.heading {
+    text-align: center;
+    text-shadow: 2px 2px gray;
+}
+
+button {
+    padding: 3px;
+    margin: 3px;
+}
+
+.left{
+    width: 40px;
+    height: 20px;
+    
+}
+.left2{
+    padding-bottom: 2px;
+}
+
+.right{
+    width: 40px;
+    height: 20px;
+    
+}
+
+.right2{
+    padding-bottom: 2px;
+}
+
+
+.center{
+    width: 40px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.center2{
+    padding-bottom: 2px;
+} */
+
+.newDabba {
+    height: 350px;
+    width: 300px;
+    background-color: greenyellow;
+    margin: 50px 10px 10px 5px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+img {
+    width: 300px;
+    height: 238px;
+}
+
+p {
+    margin-top: 4px;
+}
