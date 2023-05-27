@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .task-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      .task-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .task-list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Add space between items */
+        margin-bottom: 5px;
+      }
+
+      .task-text {
+        flex-grow: 1;
+        margin-right: 10px;
+      }
+
+      .task-buttons {
+        display: flex;
+        align-items: center;
+      }
+
+      .task-buttons button {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .task-buttons button.delete {
+        background-color: #e74c3c;
+        color: #fff;
+        margin-left: 2px; /* Reduce margin to 2px and align to the left */
+      }
+
+      .task-buttons button.edit {
+        background-color: #3498db;
+        color: #fff;
+      }
+
+      /* Additional colors */
+
+      body {
+        color: #333;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .container {
+        background-color: #fff;
+      }
+
+      .task-input {
+        border-color: #ccc;
+      }
+
+      .task-list-item {
+        background-color: #f9f9f9;
+      }
+
+      .task-text {
+        color: #333;
+      }
+
+      .task-buttons button.delete {
+        background-color: #e74c3c;
+        color: #fff;
+      }
+
+      .task-buttons button.edit {
+        background-color: #3498db;
+        color: #fff;
+      }
+
+      /* Different Colors */
+
+      .container {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+      }
+
+      .task-input {
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .task-list-item {
+        background-color: #ffffff;
+        border: 1px solid #eee;
+      }
+
+      .task-text {
+        color: #333;
+      }
+
+      .task-buttons button.delete {
+        background-color: #ff4d4d;
+        color: #fff;
+      }
+
+      .task-buttons button.edit {
+        background-color: #66b3ff;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+
+    <div class="container">
+      <input
+        type="text"
+        id="taskInput"
+        class="task-input"
+        placeholder="Enter a task"
+      />
+      <button onclick="addTask()">Add Task</button>
+
+      <ol id="taskList" class="task-list"></ol>
+    </div>
+
+    <script>
+      function addTask() {
+        var taskInput = document.getElementById("taskInput");
+        var taskList = document.getElementById("taskList");
+
+        if (taskInput.value !== "") {
+          var taskItem = document.createElement("li");
+          taskItem.classList.add("task-list-item");
+          taskItem.appendChild(document.createTextNode(taskInput.value));
+
+          var deleteButton = document.createElement("button");
+          deleteButton.appendChild(document.createTextNode("Delete"));
+          deleteButton.setAttribute("onclick", "deleteTask(this)");
+          deleteButton.classList.add("delete");
+          taskItem.appendChild(deleteButton);
+
+          var editButton = document.createElement("button");
+          editButton.appendChild(document.createTextNode("Edit"));
+          editButton.setAttribute("onclick", "editTask(this)");
+          editButton.classList.add("edit");
+          taskItem.appendChild(editButton);
+
+          taskList.appendChild(taskItem);
+          taskInput.value = "";
+        }
+      }
+
+      function deleteTask(task) {
+        var listItem = task.parentNode;
+        var taskList = listItem.parentNode;
+        taskList.removeChild(listItem);
+      }
+
+      function editTask(task) {
+        var listItem = task.parentNode;
+        var taskText = listItem.firstChild;
+        var newText = prompt("Edit the task:", taskText.nodeValue);
+
+        if (newText !== null && newText !== "") {
+          taskText.nodeValue = newText;
+        }
+      }
+    </script>
+  </body>
+</html>
