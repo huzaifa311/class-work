@@ -1,67 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+        function zakatCalculator() {
+  console.log("Zakat Calculator");
+  console.log("----------------");
+  
+  // Input the total value of your assets
+  var totalAssets = parseFloat(prompt("Enter the total value of your assets (in your local currency): "));
+  
+  // Input the total value of your debts (if any)
+  var totalDebts = parseFloat(prompt("Enter the total value of your debts (if any, in your local currency): "));
+  
+  // Input the nisab threshold (minimum amount of wealth liable for Zakat)
+  var nisab = parseFloat(prompt("Enter the nisab threshold (in your local currency): "));
+  
+  // Calculate the Zakat payable
+  var zakatPayable = (totalAssets - totalDebts) * 0.025;
+  
+  // Check if the calculated Zakat payable is above the nisab threshold
+  if (zakatPayable >= nisab) {
+    console.log("Zakat Payable: " + zakatPayable.toFixed(2) + " " + "currency");
+  } else {
+    console.log("You are not liable to pay Zakat as your wealth is below the nisab threshold.");
+  }
+}
+
+// Call the Zakat calculator function
+zakatCalculator();
+
+    </script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>To-Do List</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-  <style>
-    li {
-      margin: 3px 5px 3px 3px;
-      padding: 3px 5px 3px 3px;
-    }
-
-    button {
-      margin: 3px 5px 3px 3px;
-      padding: 3px 5px 3px 3px;
-    }
-  </style>
   <body>
-    <h1>To-Do List</h1>
-
-    <input type="text" id="taskInput" placeholder="Enter a task" value="طالئع"/>
-    <button onclick="addTask()">Add Task</button>
-
-    <ol id="taskList"></ol>
-
     <script>
-      function addTask() {
-        var taskInput = document.getElementById("taskInput");
-        var taskList = document.getElementById("taskList");
+      var plan1 = {
+    planName: 'basic'
+ }
 
-        if (taskInput.value !== "") {
-          var taskItem = document.createElement("li");
-          taskItem.appendChild(document.createTextNode(taskInput.value));
+ var plan2 = {
+    planName: 'standerd'
+ }
 
-          var deleteButton = document.createElement("button");
-          deleteButton.appendChild(document.createTextNode("Delete"));
-          deleteButton.setAttribute("onclick", "deleteTask(this)");
-          taskItem.appendChild(deleteButton);
+ var plan3 = {
+    planName: 'premium'
+ }
 
-          var editButton = document.createElement("button");
-          editButton.appendChild(document.createTextNode("Edit"));
-          editButton.setAttribute("onclick", "editTask(this)");
-          taskItem.appendChild(editButton);
-
-          taskList.appendChild(taskItem);
-          taskInput.value = "";
-        }
-      }
-
-      function deleteTask(task) {
-        var listItem = task.parentNode;
-        var taskList = listItem.parentNode;
-        taskList.removeChild(listItem);
-      }
-
-      function editTask(task) {
-        var listItem = task.parentNode;
-        var taskText = listItem.firstChild;
-        var newText = prompt("Edit the task:", taskText.nodeValue);
-
-        if (newText !== null && newText !== "") {
-          taskText.nodeValue = newText;
-        }
-      }
-      this.VBArray.apply.bind = Document.apply.bind.call.caller;
+ function plan(name, price){
+   this.planName = name
+   this.price = price
+   console.log(this)
+}
+   var plan1  = new plan('Basic', 500)
+   var plan2 = new plan('standerd', 1000)
+   var plan3 = new plan('premium', 1400)
+   
+console.log('plan1->', plan1)
+console.log('plan2->', plan2)
+console.log('plan3->', plan3)
     </script>
   </body>
 </html>
